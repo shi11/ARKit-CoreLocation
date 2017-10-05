@@ -115,7 +115,7 @@ public class SceneLocationView: ARSCNView, ARSCNViewDelegate {
     
     public func run() {
         // Create a session configuration
-        let configuration = ARWorldTrackingSessionConfiguration()
+        let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
         
         if orientToTrueNorth {
@@ -473,8 +473,6 @@ public class SceneLocationView: ARSCNView, ARSCNViewDelegate {
             print("camera did change tracking state: limited, insufficient features")
         } else if case ARCamera.TrackingState.limited(.excessiveMotion) = camera.trackingState {
             print("camera did change tracking state: limited, excessive motion")
-        } else if case ARCamera.TrackingState.limited(.none) = camera.trackingState {
-            print("camera did change tracking state: limited, no reason")
         } else if case ARCamera.TrackingState.limited(.initializing) = camera.trackingState {
             print("camera did change tracking state: limited, initializing")
         } else if case ARCamera.TrackingState.normal = camera.trackingState {
